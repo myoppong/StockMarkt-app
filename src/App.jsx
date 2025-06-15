@@ -1,11 +1,9 @@
-// src/App.jsx
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 import Navbar from "./components/Navbar.jsx";
-// Page components relocated to src/pages
 import HomePage from "./pages/HomePage.jsx";
 import BrowseLivestockPage from "./pages/BrowseLivestockPage.jsx";
 import ProductDetailPage from "./pages/ProductDetailPage.jsx";
@@ -18,7 +16,7 @@ import NotificationsPage from "./pages/NotificationsPage.jsx";
 import SellerDashboard from "./pages/SellerDashboard.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
-import AddProduct from './pages/AddProduct';
+import AddProduct from "./pages/AddProduct.jsx";
 
 export default function App() {
   return (
@@ -34,12 +32,28 @@ export default function App() {
           <Route path="/register" element={<RegisterPage />} />
 
           {/* Protected Routes */}
+          <Route
+            path="/add-product"
+            element={
+              <ProtectedRoute roles={['SELLER']}>
+                <AddProduct />
+              </ProtectedRoute>
+            }
+          />
 
-         
+          <Route
+            path="/cart"
+            element={
+              <ProtectedRoute>
+                <CartPage />
+              </ProtectedRoute>
+            }
+          />
+
+{/* <Route path="/checkout" element={  <ProtectedRoute> <CheckoutPage />  </ProtectedRoute>  } /> */}
 
 
-<Route path="/add-product" element={ <ProtectedRoute> <AddProduct /> </ProtectedRoute>} />
-<Route path="/cart"element={<ProtectedRoute><CartPage /></ProtectedRoute>}/>
+
           <Route
             path="/checkout/:id?"
             element={
@@ -48,6 +62,7 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+
           <Route
             path="/orders"
             element={
@@ -56,6 +71,7 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+
           <Route
             path="/profile"
             element={
@@ -64,6 +80,7 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+
           <Route
             path="/wishlist"
             element={
@@ -72,6 +89,7 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+
           <Route
             path="/notifications"
             element={
@@ -80,6 +98,7 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+
           <Route
             path="/seller-dashboard"
             element={

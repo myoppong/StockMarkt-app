@@ -99,20 +99,24 @@ export default function HomePage() {
   return (
     <div className="bg-gray-50 min-h-screen">
       
-      {/* Hero Banner */}
-   <section className="h-64 md:h-96 relative overflow-hidden">
+     {/* Hero Banner */}
+<section className="h-64 md:h-96 relative overflow-hidden">
   {/* Farm background image */}
   <div 
     className="absolute inset-0 bg-cover bg-center"
     style={{ backgroundImage: "url(https://images.pexels.com/photos/2132115/pexels-photo-2132115.jpeg?auto=compress&cs=tinysrgb&w=1600)" }}
   ></div>
   
-  {/* Animated Animals */}
+  {/* Dark overlay for text contrast */}
+  <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+  
+  {/* Animated Animals - Increased number and movement range */}
+  {/* Row 1: Foreground animals (larger, more movement) */}
   <motion.div 
-    className="absolute bottom-0 left-10"
-    animate={{ x: [0, 20, 0] }}
+    className="absolute bottom-0 left-5"
+    animate={{ x: [0, 120, 0] }}
     transition={{ 
-      duration: 8,
+      duration: 12,
       repeat: Infinity,
       ease: "easeInOut"
     }}
@@ -120,59 +124,140 @@ export default function HomePage() {
     <img 
       src="https://cdn-icons-png.flaticon.com/512/2317/2317898.png" 
       alt="Cow" 
-      className="w-16 h-16 md:w-24 md:h-24 filter drop-shadow-lg"
+      className="w-20 h-20 md:w-28 md:h-28 filter drop-shadow-lg"
     />
   </motion.div>
   
   <motion.div 
-    className="absolute bottom-0 right-1/4"
-    animate={{ x: [0, -30, 0] }}
+    className="absolute bottom-0 right-10"
+    animate={{ x: [0, -150, 0] }}
     transition={{ 
-      duration: 7,
-      repeat: Infinity,
-      ease: "easeInOut",
-      delay: 0.5
-    }}
-  >
-    <img 
-      src="https://cdn-icons-png.flaticon.com/512/194/194279.png" 
-      alt="Sheep" 
-      className="w-14 h-14 md:w-20 md:h-20 filter drop-shadow-lg"
-    />
-  </motion.div>
-  
-  <motion.div 
-    className="absolute bottom-0 left-1/3"
-    animate={{ 
-      x: [0, 25, 0],
-      y: [0, -5, 0] 
-    }}
-    transition={{ 
-      duration: 6,
+      duration: 14,
       repeat: Infinity,
       ease: "easeInOut",
       delay: 1
     }}
   >
     <img 
-      src="https://cdn-icons-png.flaticon.com/512/2350/2350180.png" 
-      alt="Goat" 
-      className="w-12 h-12 md:w-18 md:h-18 filter drop-shadow-lg"
+      src="https://cdn-icons-png.flaticon.com/512/194/194279.png" 
+      alt="Sheep" 
+      className="w-16 h-16 md:w-24 md:h-24 filter drop-shadow-lg"
     />
   </motion.div>
   
-  {/* Dark overlay for text contrast */}
-  <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+  {/* Row 2: Middle ground animals */}
+  <motion.div 
+    className="absolute bottom-8 left-1/4"
+    animate={{ 
+      x: [0, 100, 0],
+      y: [0, -10, 0]
+    }}
+    transition={{ 
+      duration: 10,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay: 0.7
+    }}
+  >
+    <img 
+      src="https://cdn-icons-png.flaticon.com/512/2350/2350180.png" 
+      alt="Goat" 
+      className="w-18 h-18 md:w-26 md:h-26 filter drop-shadow-lg"
+    />
+  </motion.div>
+  
+  <motion.div 
+    className="absolute bottom-12 right-1/3"
+    animate={{ 
+      x: [0, -80, 0],
+      y: [0, 5, 0]
+    }}
+    transition={{ 
+      duration: 9,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay: 1.5
+    }}
+  >
+    <img 
+      src="https://cdn-icons-png.flaticon.com/512/1042/1042333.png" 
+      alt="Chicken" 
+      className="w-14 h-14 md:w-20 md:h-20 filter drop-shadow-lg"
+    />
+  </motion.div>
+  
+  {/* Row 3: Background animals (smaller, slower) */}
+  <motion.div 
+    className="absolute bottom-20 left-1/2"
+    animate={{ 
+      x: [0, 60, 0],
+      y: [0, -5, 0]
+    }}
+    transition={{ 
+      duration: 15,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay: 0.3
+    }}
+  >
+    <img 
+      src="https://cdn-icons-png.flaticon.com/512/3069/3069172.png" 
+      alt="Pig" 
+      className="w-12 h-12 md:w-16 md:h-16 filter drop-shadow-lg opacity-90"
+    />
+  </motion.div>
+  
+  <motion.div 
+    className="absolute bottom-16 right-20"
+    animate={{ 
+      x: [0, -70, 0],
+      y: [0, 3, 0]
+    }}
+    transition={{ 
+      duration: 13,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay: 2
+    }}
+  >
+    <img 
+      src="https://cdn-icons-png.flaticon.com/512/194/194242.png" 
+      alt="Horse" 
+      className="w-14 h-14 md:w-22 md:h-22 filter drop-shadow-lg opacity-90"
+    />
+  </motion.div>
+  
+  {/* Flying bird for top movement */}
+  <motion.div 
+    className="absolute top-10 left-0"
+    animate={{ 
+      x: [-100, window.innerWidth + 100],
+      y: [0, 20, 0, -20, 0]
+    }}
+    transition={{ 
+      duration: 15,
+      repeat: Infinity,
+      ease: "linear"
+    }}
+  >
+    <img 
+      src="https://cdn-icons-png.flaticon.com/512/685/685049.png" 
+      alt="Bird" 
+      className="w-10 h-10 md:w-14 md:h-14 filter drop-shadow-lg"
+    />
+  </motion.div>
   
   {/* Title with entrance animation */}
-  <motion.h1
-    initial={{ opacity: 0, y: -20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8 }}
-    className="text-white text-4xl md:text-6xl font-bold drop-shadow-lg text-center z-10 relative"
-  >
-    Welcome to StockMart
-  </motion.h1>
+  <div className="absolute inset-0 flex items-center justify-center">
+    <motion.h1
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-white text-4xl md:text-6xl font-bold drop-shadow-lg text-center z-10 px-4"
+    >
+      Welcome to StockMart
+    </motion.h1>
+  </div>
 </section>
 
       {/* Category Filter */}

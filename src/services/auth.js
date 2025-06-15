@@ -1,8 +1,8 @@
+// src/services/authService.js
 import api from './api';
 
-export const login = (credentials) => api.post('login', credentials);
+export const registerUser = async ({ username, email, phone, password, confirmPassword, role }) =>
+  api.post('/register', { username, email, phone, password, confirmPassword, role });
 
-export const register = (data) => api.post('/register', data);
-
-export const logout = () => api.post('/logout');
-
+export const loginUser = async ({ identifier, password }) =>
+  api.post('/login', { identifier, password });
