@@ -330,7 +330,7 @@
 //   );
 // }
 
-// src/pages/HomePage.jsx
+// src/pages/HomePage.js
 // src/pages/HomePage.jsx
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
