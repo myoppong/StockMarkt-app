@@ -32,7 +32,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between px-4 py-4 max-w-7xl mx-auto">
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold text-green-600">
-          StockMart
+          LifeStockMart
         </Link>
 
         {/* Mobile Hamburger */}
@@ -68,7 +68,7 @@ const Navbar = () => {
             onClick={() => setDropdownOpen(!dropdownOpen)}
           >
             <User />
-            <span className="ml-1">{user ? user.email : "Account"}</span>
+            <span className="ml-1">{user ? user.username : "Account"}</span>
             <ChevronDown className="ml-1" />
           </div>
 
@@ -105,7 +105,7 @@ const Navbar = () => {
                   </Link>
                   {user.role === "SELLER" && (
                     <Link
-                      to="/seller/dashboard"
+                      to="/sellerdashboard"
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
                       Seller Dashboard
@@ -150,7 +150,7 @@ const Navbar = () => {
               <Link to="/profile">Profile</Link>
               <Link to="/orders">My Orders</Link>
               {user.role === "SELLER" && (
-                <Link to="/seller/dashboard">Seller Dashboard</Link>
+                <Link to="/sellerdashboard">Seller Dashboard</Link>
               )}
               <button onClick={logout}>Sign Out</button>
             </>

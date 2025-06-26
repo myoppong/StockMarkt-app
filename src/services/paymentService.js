@@ -1,4 +1,10 @@
 import api from "./api";
 
-export const processPayment = (orderId, paymentMethod, momoDetails) =>
-  api.post("/processpayment", { orderId, paymentMethod, momoDetails });
+export async function processPayment(orderId, paymentMethod, momoDetails) {
+  const res = await api.post("/processpayment", {
+    orderId,
+    paymentMethod,
+    momoDetails
+  });
+  return res.data;
+}

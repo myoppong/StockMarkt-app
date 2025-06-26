@@ -93,6 +93,8 @@ export default function CheckoutPage() {
           paymentMethod,
           { phoneNumber: momoPhone, email: auth.user.email }
         );
+        console.log("Redirecting to Paystack:", authorization_url);
+
         window.location.href = authorization_url;
       } else {
         // pay_on_delivery

@@ -1,8 +1,8 @@
 // src/services/authService.js
 import api from './api';
 
-export const registerUser = async ({ username, email, phone, password, confirmPassword, role }) =>
-  api.post('/register', { username, email, phone, password, confirmPassword, role });
+export const registerUser = async (formData) =>
+  api.post('/register', formData); // Sends everything, including city
 
 export const loginUser = async ({ identifier, password }) =>
   api.post('/login', { identifier, password });
